@@ -1,18 +1,18 @@
-package TestNg;
+package org.example.TestNg;
 
 import org.testng.annotations.*;
 
-public class Test003 {
+public class Test002 {
 
     @BeforeSuite
     void demo1()
     {
-        System.out.println("Read the data from the Excel/MySql");
+        System.out.println("BeforeSuite");
     }
 
     @BeforeTest
     void demo2(){
-        System.out.println("Data in Matrix, TC before");
+        System.out.println("BeforeTest");
     }
 
     @BeforeClass
@@ -47,7 +47,6 @@ public class Test003 {
     @AfterSuite
     void demo9() {
         System.out.println("AfterSuite");
-        System.out.println("Close everything, Delete all the temp files");
 
     }
 
