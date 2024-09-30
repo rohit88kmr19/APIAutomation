@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="D:/APIEcomm/src/test/java/org/example">
+        <classes>
+            <class name="org.example.E2E.TestNg001">
+                <methods>
+                    <include name="testcase01"/>
+                    <include name="testcase02"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
