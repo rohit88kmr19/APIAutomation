@@ -1,3 +1,5 @@
+package org.example;
+
 import io.restassured.RestAssured;
 
 public class Test001 {
