@@ -2,16 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="D:/APIEcomm/src/test/java/org/example">
-        <groups>
-                <run>
-                    <include name="preprod">  </include>
-                    <exclude name="reg"> </exclude>
-
-                </run>
-        </groups>
-
+        <parameter name="browser" value="chrome"></parameter>
         <classes>
-            <class name="org.example.E2E.Test004">
+            <class name="org.example.E2E.Test006">
             </class>
         </classes>
     </test>
