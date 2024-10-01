@@ -4,7 +4,13 @@
     <test verbose="2" preserve-order="true" name="D:/APIEcomm/src/test/java/org/example">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
-            <class name="org.example.E2E.Test006">
+            <class name="org.example.E2E.TestCaseIntegration">
+                <methods>
+                    <include name="test_update_request_put"></include>
+                    <include name="test_update_request_get"></include>
+                    <include name="test_delete_booking"></include>
+                    <include name="test_get_Deleted_ID"></include>
+                </methods>
             </class>
         </classes>
     </test>
