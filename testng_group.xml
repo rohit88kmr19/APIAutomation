@@ -2,9 +2,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="D:/APIEcomm/src/test/java/org/example">
-        <classes>
-            <class name="org.example.E2E.TestNg001">
+        <groups>
+                <run>
+                    <include name="qa">
+                        </include>
+                </run>
+        </groups>
 
+        <classes>
+            <class name="org.example.E2E.Test004">
             </class>
         </classes>
     </test>

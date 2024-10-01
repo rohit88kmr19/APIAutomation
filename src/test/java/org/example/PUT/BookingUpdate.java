@@ -17,8 +17,8 @@ public class BookingUpdate {
     public void test_put_positive_tc(){
         // POST - Auth - token
 
-        String token  = "ba55f4688fd25d3";
-        String bookingid = "1239";
+        String token  = "01547772d5095b2";
+        String bookingid = "321";
 
         String payloadPut1= "{\n" +
                 "    \"firstname\" : \"Sonu\",\n" +
