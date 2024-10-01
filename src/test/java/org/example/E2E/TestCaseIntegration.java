@@ -8,6 +8,8 @@ import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import static org.hamcrest.Matchers.equalTo;
+
 public class TestCaseIntegration {
 
     //  Create a Token
@@ -74,6 +76,7 @@ public class TestCaseIntegration {
         // Get Validatable response to perform validation
         validatableResponse = response.then().log().all();
         validatableResponse.statusCode(200);
+
         bookingId = response.jsonPath().getString("bookingid");
             return bookingId;
     }
@@ -104,10 +107,14 @@ public class TestCaseIntegration {
 
         Response response = requestSpecification.when().put();
 
-
         // Get Validatable response to perform validation
         validatableResponse = response.then().log().all();
         validatableResponse.statusCode(200);
+        validatableResponse
+                // Validate the firstname field
+                .body("firstname", equalTo("Anshul"));
+        String firstName = response.path("firstname");
+        System.out.println("First Name:---"+firstName);
     }
     @Test(priority =2)
     public void test_update_request_get() {
