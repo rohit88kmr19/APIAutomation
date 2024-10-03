@@ -43,6 +43,8 @@ public class Test01Asser {
         // Get Validatable response to perform validation
         validatableResponse = response.then().log().all();
         validatableResponse.statusCode(200);
+
+        //Below RestAssured Matchers - Hamcrest Assertions.
 //        validatableResponse.body("booking.firstname", Matchers.equalTo("Sonu"));
 //        validatableResponse.body("booking.lastname", Matchers.equalTo("kumar"));
 //        validatableResponse.body("booking.depositpaid", Matchers.equalTo(true));
@@ -50,9 +52,12 @@ public class Test01Asser {
 
         bookingId = response.then().extract().path("bookingid");
         String firstname=response.then().extract().path("booking.firstname");
+//
+//        Below TestNg Assertions
 //        Assert.assertNotNull(bookingId);
 //        Assert.assertEquals(firstname,"Sonu");
 
+        //AssertJ below code
         assertThat(bookingId).isNotNull().isNotZero().isPositive();
         assertThat(firstname).isEqualTo("Sonu").isNotEmpty().isNotBlank();
 
