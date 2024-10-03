@@ -1,5 +1,6 @@
 package org.example.Verification;
 
+import io.qameta.allure.*;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -9,12 +10,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static io.qameta.allure.SeverityLevel.CRITICAL;
 import static org.assertj.core.api.Assertions.*;
 
 
 public class Test02AssertVerf {
 
-
+    @Description("This test attempts to log into the website using a login and a password. Fails if any error happens.\n\nNote that this test does not test 2-Factor Authentication.")
+    @Severity(CRITICAL)
+    @Owner("John Doe")
+    @Link(name = "Website", url = "https://dev.example.com/")
+    @Issue("AUTH-123")
+    @TmsLink("TMS-456")
     @Test
     public void test_verify_assertJ()
     {
@@ -36,7 +43,7 @@ public class Test02AssertVerf {
                         LocalDate.of(2024, 12, 31)
                 );
 
-        File file = new File("D:/APIEco mm/TestData.json");
+        File file = new File("D:\\APIEcomm\\src\\test\\java\\org\\example\\Verification\\Testdata.json");
         assertThat(file).exists().isFile().canRead();
 
         Map<String, Integer> ages = new HashMap<>();
