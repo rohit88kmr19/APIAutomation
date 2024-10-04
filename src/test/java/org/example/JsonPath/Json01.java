@@ -2,10 +2,14 @@ package org.example.JsonPath;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class Json01 {
     RequestSpecification requestSpecification;
@@ -34,11 +38,27 @@ public class Json01 {
         requestSpecification.basePath("/booking/"); // I was picking wring URL
         requestSpecification.contentType(ContentType.JSON);
         //requestSpecification.cookie("token",token);
-        requestSpecification.body(payload2).log().all();
+        requestSpecification.body(payload2);
 
         Response response = requestSpecification.when().post();
 
-        System.out.println("the response is:-->" +response);
+        System.out.println("the response is:-->" +response.asString());
+
+        JsonPath jsonPath= new JsonPath(response.asString());
+        String bookingId  = jsonPath.getString("bookingid");
+        String firstname  = jsonPath.getString("booking.firstname");
+        String checkout  = jsonPath.getString("booking.bookingdates.checkout");
+        System.out.println(bookingId);
+        System.out.println(firstname);
+        System.out.println(checkout);
+
+        // Below AssertJ Assertion.
+        assertThat(bookingId).isNotNull().isNotBlank().isGreaterThan("0");
+        assertThat(firstname).isNotNull().isNotBlank().isEqualTo("Sonu");
+        assertThat(checkout).isNotNull().isNotBlank();
+
+        Assert.assertEquals(firstname,"Sonu"); // TestNG Assertion
+
 
 
         // Get Validatable response to perform validation
