@@ -58,3 +58,6 @@ public class POJO02HashMap {
 
     }
 }
+
+//Serialization - converting java objects to JSON strings , we need library GSON and Jackson .
+//Deserialization - Reverse json strings to Java Objects.
